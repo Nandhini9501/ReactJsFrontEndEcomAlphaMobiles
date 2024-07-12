@@ -1,0 +1,118 @@
+.hello{
+    color: burlywood;
+}
+.crbg{
+    width: 100%;
+    height: 300px;
+    margin-right: 100px;
+}
+.crbg2{
+    width: 100%;
+    height: 500px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.crbg3{
+   
+    margin: 5px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header{
+    overflow-x: hidden;
+}
+.caption{
+    color: rgb(243, 248, 243);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.caption2{
+    color: rgb(254, 254, 254);
+    
+   margin-bottom: 150px;
+}
+.card{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.food
+{
+ height: 100px;
+
+ 
+}
+.button{
+   
+    color: rgb(241, 237, 245);
+    background-color:  rgba(19, 104, 15, 0.932);
+    margin-right: 20px;
+    border: green;
+    
+}
+.button:hover{
+    background-color: aliceblue;
+  color: #157037;
+}  
+.round{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+.roundimg{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 150px;
+    width: 150px;
+    margin: 20px;
+    border-radius: 60px;
+    overflow-x: hidden;
+}
+.name{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.hand
+{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: end;
+    margin-top: 50px;
+    margin-left: 40px;
+}
+.norcard{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: #000;
+    border-radius: 50px;
+    background-color: #8ad5a6;
+    padding: 50px;
+}
+.latest{
+    margin-bottom: 40px;
+    margin-left: 50px;
+}
+.caption3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
