@@ -1,19 +1,17 @@
-// import React from 'react';
 import ImageCarousel from "./ImageCarousel";
 import NavBar from "./NavBar";
-// import Cards from "./Cards";
-
-
 
 const Home = () => {
   return (
     <>
-   
-    <div ><NavBar /></div>
-    <div><ImageCarousel/></div>
-    {/* <Cards/> */}
+      <div>
+        <NavBar />
+      </div>
+      <div>
+        <ImageCarousel />
+      </div>
     </>
   );
-}
+};
 
 export default Home;

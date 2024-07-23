@@ -4,7 +4,6 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 
-
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
     userName: "",
@@ -14,11 +13,7 @@ const RegistrationForm = () => {
     profilePicture: "",
   });
 
-  // const [profilePicture, setProfilePicture] = useState(null);
-  // const [previewUrl, setPreviewUrl] = useState(null);
   const navigate = useNavigate();
-
-  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,39 +24,18 @@ const RegistrationForm = () => {
     console.log(formData);
   };
 
-  // const handleImageChange = (e) => {
-  //   const file = e.target.files[0];
-  //   setProfilePicture(file);
-
-  //   const reader = new FileReader();
-  //   reader.onloadend = () => {
-  //     setPreviewUrl(reader.result);
-  //   };
-  //   if (file) {
-  //     reader.readAsDataURL(file);
-  //   }
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // const data = new FormData();
-    // data.append("text", JSON.stringify(formData));
-    // if (profilePicture) {
-    //   data.append("imageFile", profilePicture);
-    // }
-    // console.log("Data----------------------" + data);
-    
     try {
       const response = await axios.post(
         "http://localhost:4000/registerApi/register",
-        formData,
-       
+        formData
       );
       // alert("Registration sucessfull")
       if (response.data.length != 0) {
         // navigate("/login");
-        alert("Registration successful")
+        alert("Registration successful");
       } else {
         console.log("User Not Found");
       }
@@ -78,8 +52,7 @@ const RegistrationForm = () => {
   return (
     <>
       <div>
-        
-        <Form >
+        <Form>
           <div className="container">
             <Form.Group>
               <Form.Label className="textuser">User name</Form.Label>
@@ -117,7 +90,6 @@ const RegistrationForm = () => {
                 value={formData.password}
                 onChange={handleChange}
               />
-
 
               <div className="buttonlogin">
                 <Button

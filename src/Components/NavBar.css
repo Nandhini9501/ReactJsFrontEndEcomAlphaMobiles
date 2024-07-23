@@ -1,77 +1,76 @@
 .navbar {
-    background-color: #333;
-    padding: 1rem;
-  }
-  
-  .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .navbar-brand {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.5rem;
-  }
-  
+  background-color: #333;
+  padding: 1rem;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.navbar-toggler {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.navbar-collapse {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #444;
+  width: 100%;
+  position: absolute;
+  top: 3.5rem;
+  left: 0;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
+.navbar-collapse.open {
+  height: 200px; /* Adjust as needed */
+}
+
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  margin: 1rem 0;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+@media (min-width: 768px) {
   .navbar-toggler {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.5rem;
-    cursor: pointer;
+    display: none;
   }
-  
+
   .navbar-collapse {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #444;
-    width: 100%;
-    position: absolute;
-    top: 3.5rem;
-    left: 0;
-    height: 0;
-    overflow: hidden;
-    transition: height 0.3s ease;
+    flex-direction: row;
+    height: auto;
+    position: static;
   }
-  
-  .navbar-collapse.open {
-    height: 200px; /* Adjust as needed */
-  }
-  
-  .navbar-nav {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
+
   .nav-item {
-    margin: 1rem 0;
+    margin: 0 1rem;
   }
-  
-  .nav-link {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.2rem;
-  }
-  
-  @media (min-width: 768px) {
-    .navbar-toggler {
-      display: none;
-    }
-  
-    .navbar-collapse {
-      display: flex;
-      flex-direction: row;
-      height: auto;
-      position: static;
-    }
-  
-    .nav-item {
-      margin: 0 1rem;
-    }
-  }
-  
+}

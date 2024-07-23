@@ -3,9 +3,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 // import NavBar from "./NavBar";
-
 
 const Login = () => {
   const [login, getlogin] = useState({
@@ -41,7 +40,6 @@ const Login = () => {
 
   return (
     <>
-      
       <div className="body">
         {/* <NavBar/> */}
         <div>
@@ -71,7 +69,7 @@ const Login = () => {
 
             <div className="buttonlogin">
               <Button
-                style={{marginLeft:"200px",marginTop:"30px"}}
+                style={{ marginLeft: "200px", marginTop: "30px" }}
                 className="button1"
                 type="submit"
                 variant="primary"

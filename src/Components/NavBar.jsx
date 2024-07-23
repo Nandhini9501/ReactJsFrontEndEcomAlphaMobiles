@@ -10,12 +10,13 @@ import addCart from "../assets/Image/addCart.png";
 export const NavBar = () => {
   const [showRegModal, setShowRegModal] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
-  const [showRoleModal, setShowRoleModal] = useState(false); // New state for role modal
-  const [loggedInUser, setLoggedInUser] = useState(null); // Track logged in user
+  const [showRoleModal, setShowRoleModal] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState(null);
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     userName: "",
+    id: "",
     password: "",
     email: "",
     contact: "",
@@ -28,6 +29,7 @@ export const NavBar = () => {
 
   useEffect(() => {
     const user = localStorage.getItem("userName");
+    const userId = localStorage.getItem("id");
     if (user) {
       setLoggedInUser(user);
     }
@@ -83,17 +85,19 @@ export const NavBar = () => {
         "http://localhost:4040/registerApi/login",
         login
       );
+      console.log("Login response:", res.data);
       if (res.data.length !== 0) {
         alert("Login successful");
         setShowLoginModal(false);
 
         localStorage.setItem("userName", res.data.userName);
+        localStorage.setItem("userId", res.data.id);
         localStorage.setItem("isAdmin", res.data.admin);
 
         setLoggedInUser(res.data.userName);
 
         if (res.data.admin) {
-          setShowRoleModal(true); // Show role selection modal
+          setShowRoleModal(true);
         } else {
           navigate("/");
         }
@@ -107,6 +111,7 @@ export const NavBar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("userName");
+    localStorage.removeItem("userId");
     localStorage.removeItem("isAdmin");
     setLoggedInUser(null);
     navigate("/");
@@ -119,6 +124,10 @@ export const NavBar = () => {
     } else {
       navigate("/");
     }
+  };
+
+  const handleNavigate = () => {
+    navigate("/addCart");
   };
 
   return (
@@ -140,12 +149,22 @@ export const NavBar = () => {
             <Nav.Link href="/">Home</Nav.Link>
             {loggedInUser && <Nav.Link href="/productPage">Products</Nav.Link>}
             {loggedInUser ? (
-              <Dropdown>
-                <Dropdown.Toggle variant="dark">{loggedInUser}</Dropdown.Toggle>
-                <Dropdown.Menu>
-                  <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
+              <>
+                <Dropdown>
+                  <Dropdown.Toggle variant="dark">
+                    {loggedInUser}
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+                <Button variant="dark" onClick={handleNavigate}>
+                  <img
+                    src={addCart}
+                    style={{ width: "30px", height: "30px" }}
+                  />
+                </Button>
+              </>
             ) : (
               <>
                 <Button variant="dark" onClick={handleShow}>
@@ -156,9 +175,6 @@ export const NavBar = () => {
                 </Button>
               </>
             )}
-            <Button variant="dark">
-              <img src={addCart} style={{ width: "30px", height: "30px" }} />
-            </Button>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

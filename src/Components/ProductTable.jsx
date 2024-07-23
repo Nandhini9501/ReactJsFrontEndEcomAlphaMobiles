@@ -10,7 +10,7 @@ import deleteImg from "../assets/Image/delete.svg";
 import saveImg from "../assets/Image/save.png";
 import closeImg from "../assets/Image/close.svg";
 import add from "../assets/Image/add.png";
-import AdminNav from "./AdminNav"
+import AdminNav from "./AdminNav";
 
 const ProductTable = () => {
   const [products, setProducts] = useState([]);
@@ -22,7 +22,7 @@ const ProductTable = () => {
     cardId: "",
     cardTitle: "",
     cardPrice: "",
-    cardDes:"",
+    cardDes: "",
     cardImage: "",
   });
   const [productToDelete, setProductToDelete] = useState(null);
@@ -31,7 +31,7 @@ const ProductTable = () => {
   const [newProduct, setNewProduct] = useState({
     cardTitle: "",
     cardPrice: "",
-    cardDes:"",
+    cardDes: "",
     cardImage: null,
   });
 
@@ -56,7 +56,7 @@ const ProductTable = () => {
   };
 
   const handleShowView = (product) => {
-    console.log("PRODUCT+++++++++++++",product);
+    console.log("PRODUCT+++++++++++++", product);
     setCurrentProduct(product);
     setShowView(true);
   };
@@ -106,7 +106,9 @@ const ProductTable = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.get(`http://localhost:4040/card/deleteCard/${productToDelete.cardId}`);
+      await axios.get(
+        `http://localhost:4040/card/deleteCard/${productToDelete.cardId}`
+      );
       fetchUsers();
       setShowDeleteConfirm(false);
     } catch (error) {
@@ -170,7 +172,7 @@ const ProductTable = () => {
 
   return (
     <>
-      <AdminNav/>
+      <AdminNav />
       <Button
         variant="dark"
         size="sm"
@@ -357,7 +359,7 @@ const ProductTable = () => {
             <Modal.Title>Add Product</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form onSubmit={handleAddProduct}>
+            <Form>
               <Form.Group controlId="formProductTitle">
                 <Form.Label>Card Title</Form.Label>
                 <Form.Control
@@ -382,14 +384,17 @@ const ProductTable = () => {
                   required
                 />
               </Form.Group>
-              <Form.Group controlId="formProductPrice" className="mt-3">
+              <Form.Group controlId="formProductDescription" className="mt-3">
                 <Form.Label>Card Description</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Enter card Description"
-                  value={newProduct.price}
+                  value={newProduct.description}
                   onChange={(e) =>
-                    setNewProduct({ ...newProduct, description: e.target.value })
+                    setNewProduct({
+                      ...newProduct,
+                      description: e.target.value,
+                    })
                   }
                   required
                 />
@@ -426,21 +431,19 @@ const ProductTable = () => {
             <Modal.Title>Confirm Delete</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            Are you sure you want to delete the product 
+            Are you sure you want to delete the product
             {productToDelete?.cardTitle}
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleCloseDeleteConfirm}>
               Cancel
             </Button>
-            <Button variant="danger" 
-            onClick={handleDelete}>
+            <Button variant="danger" onClick={handleDelete}>
               Delete
             </Button>
           </Modal.Footer>
-        </Modal> 
+        </Modal>
       </div>
-      
     </>
   );
 };

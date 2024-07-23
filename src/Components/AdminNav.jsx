@@ -1,4 +1,3 @@
-
 import { Link, useNavigate } from "react-router-dom";
 import { Navbar, Nav, Dropdown } from "react-bootstrap";
 
@@ -10,7 +9,7 @@ const AdminNav = () => {
     navigate("/");
   };
 
-  const userName = localStorage.getItem("userName") ;
+  const userName = localStorage.getItem("userName");
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
